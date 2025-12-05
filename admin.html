@@ -1,28 +1,163 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Upload Kelulusan</title>
-<link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin • Upload Kelulusan 2026</title>
+
+<!-- STYLE -->
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        background: #f3f6fa;
+    }
+
+    .header {
+        background: #0a4da3;
+        color: white;
+        padding: 25px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 22px;
+        color: #0a4da3;
+        margin-bottom: 20px;
+    }
+
+    .upload-box {
+        border: 2px dashed #0a4da3;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        background: #f0f6ff;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .upload-box:hover {
+        background: #e1edff;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    button {
+        padding: 12px 20px;
+        margin-top: 20px;
+        width: 100%;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background: #0a4da3;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #083778;
+    }
+
+    pre {
+        background: #f7f7f7;
+        padding: 15px;
+        border-radius: 10px;
+        height: 200px;
+        overflow: auto;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        font-size: 13px;
+    }
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>UPLOAD DATA KELULUSAN</h1>
-    <div class="line"></div>
-
-    <p>Upload file Excel dengan kolom:</p>
-    <b>NISN | NAMA | STATUS</b><br><br>
-
-    <input type="file" id="fileInput" accept=".xlsx, .xls" />
-    <button onclick="uploadExcel()">UPLOAD</button>
-
-    <div id="info" class="hasil"></div>
+<div class="header">
+    <img src="logo_sekolah.png" class="logo"><br>
+    Admin Kelulusan • SMKN 1 Panggarangan
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
-<script src="script.js"></script>
+<div class="container">
+    <h2>Upload Data Kelulusan (Excel)</h2>
+
+    <label for="fileExcel" class="upload-box">
+        <strong> Klik di sini untuk pilih file Excel (.xlsx)</strong>
+    </label>
+
+    <input type="file" id="fileExcel" accept=".xlsx, .xls">
+
+    <button onclick="uploadExcel()">Convert & Download JSON</button>
+
+    <pre id="output">{ JSON akan muncul di sini }</pre>
+</div>
+
+<!-- XLSX Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- SCRIPT -->
+<script>
+function uploadExcel() {
+    let file = document.getElementById("fileExcel").files[0];
+    if (!file) {
+        alert("Silakan pilih file Excel terlebih dahulu!");
+        return;
+    }
+
+    let reader = new FileReader();
+    reader.readAsBinaryString(file);
+
+    reader.onload = function(e) {
+        let data = e.target.result;
+        let workbook = XLSX.read(data, { type: "binary" });
+
+        let sheetName = workbook.SheetNames[0];
+        let sheet = workbook.Sheets[sheetName];
+
+        let jsonData = XLSX.utils.sheet_to_json(sheet);
+
+        document.getElementById("output").textContent =
+            JSON.stringify(jsonData, null, 2);
+
+        downloadJSON(jsonData);
+    };
+}
+
+function downloadJSON(data) {
+    let json = JSON.stringify(data, null, 2);
+
+    let blob = new Blob([json], { type: "application/json" });
+    let link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "data.json";
+    link.click();
+}
+</script>
 
 </body>
 </html>
