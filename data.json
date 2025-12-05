@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upload Kelulusan</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>UPLOAD DATA KELULUSAN</h1>
+    <div class="line"></div>
+
+    <p>Upload file Excel dengan kolom:</p>
+    <b>NISN | NAMA | STATUS</b><br><br>
+
+    <input type="file" id="fileInput" accept=".xlsx, .xls" />
+    <button onclick="uploadExcel()">UPLOAD</button>
+
+    <div id="info" class="hasil"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
