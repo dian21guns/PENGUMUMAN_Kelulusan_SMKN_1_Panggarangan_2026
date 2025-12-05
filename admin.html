@@ -3,61 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin • Upload Kelulusan 2026</title>
+<title>Admin Kelulusan SMKN 1 Panggarangan</title>
 
-<!-- STYLE -->
 <style>
     body {
-        font-family: 'Segoe UI', sans-serif;
         margin: 0;
-        background: #f3f6fa;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #eef3f7;
     }
 
     .header {
         background: #0a4da3;
         color: white;
-        padding: 25px;
+        padding: 30px 10px;
         text-align: center;
-        font-size: 28px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
-    .logo {
-        width: 80px;
-        height: 80px;
+    .header img {
+        width: 85px;
+        height: 85px;
         margin-bottom: 10px;
     }
 
+    .header h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
     .container {
-        max-width: 600px;
-        margin: 40px auto;
+        max-width: 750px;
         background: white;
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin: 40px auto;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.08);
     }
 
     h2 {
         text-align: center;
-        font-size: 22px;
+        font-size: 24px;
+        margin-bottom: 25px;
         color: #0a4da3;
-        margin-bottom: 20px;
+        font-weight: 700;
     }
 
     .upload-box {
         border: 2px dashed #0a4da3;
-        padding: 30px;
+        padding: 35px 20px;
         border-radius: 15px;
         text-align: center;
-        background: #f0f6ff;
+        font-size: 17px;
         cursor: pointer;
-        transition: 0.3s;
+        background: #f5faff;
+        transition: 0.25s;
+        margin-bottom: 15px;
     }
 
     .upload-box:hover {
-        background: #e1edff;
+        background: #e8f0ff;
     }
 
     input[type="file"] {
@@ -65,80 +71,76 @@
     }
 
     button {
-        padding: 12px 20px;
-        margin-top: 20px;
         width: 100%;
-        font-size: 16px;
-        border: none;
-        border-radius: 10px;
         background: #0a4da3;
         color: white;
+        padding: 14px;
+        font-size: 17px;
+        border: none;
+        border-radius: 10px;
         cursor: pointer;
         font-weight: bold;
-        transition: 0.3s;
+        transition: 0.25s;
     }
 
     button:hover {
-        background: #083778;
+        background: #073a7e;
     }
 
     pre {
-        background: #f7f7f7;
-        padding: 15px;
-        border-radius: 10px;
-        height: 200px;
-        overflow: auto;
-        margin-top: 20px;
-        border: 1px solid #ddd;
-        font-size: 13px;
+        background: #f8f8f8;
+        padding: 18px;
+        border-radius: 12px;
+        border: 1px solid #d6d6d6;
+        height: 240px;
+        overflow-y: auto;
+        font-size: 14px;
+        margin-top: 25px;
+        white-space: pre-wrap;
     }
+
 </style>
 </head>
-
 <body>
 
 <div class="header">
-    <img src="logo_sekolah.png" class="logo"><br>
-    Admin Kelulusan • SMKN 1 Panggarangan
+    <img src="logo_sekolah.png" alt="logo">
+    <h1>Admin Kelulusan • SMKN 1 Panggarangan</h1>
 </div>
 
 <div class="container">
     <h2>Upload Data Kelulusan (Excel)</h2>
 
     <label for="fileExcel" class="upload-box">
-        <strong> Klik di sini untuk pilih file Excel (.xlsx)</strong>
+        <strong>Klik di sini untuk memilih file Excel (.xlsx)</strong><br>
+        <small>Pastikan format kolom sudah sesuai</small>
     </label>
 
     <input type="file" id="fileExcel" accept=".xlsx, .xls">
 
-    <button onclick="uploadExcel()">Convert & Download JSON</button>
+    <button onclick="uploadExcel()">Convert → Download JSON</button>
 
     <pre id="output">{ JSON akan muncul di sini }</pre>
 </div>
 
-<!-- XLSX Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
-<!-- SCRIPT -->
 <script>
 function uploadExcel() {
-    let file = document.getElementById("fileExcel").files[0];
+    const file = document.getElementById("fileExcel").files[0];
     if (!file) {
         alert("Silakan pilih file Excel terlebih dahulu!");
         return;
     }
 
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.readAsBinaryString(file);
 
     reader.onload = function(e) {
-        let data = e.target.result;
-        let workbook = XLSX.read(data, { type: "binary" });
-
-        let sheetName = workbook.SheetNames[0];
-        let sheet = workbook.Sheets[sheetName];
-
-        let jsonData = XLSX.utils.sheet_to_json(sheet);
+        const data = e.target.result;
+        const workbook = XLSX.read(data, { type: "binary" });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(sheet);
 
         document.getElementById("output").textContent =
             JSON.stringify(jsonData, null, 2);
@@ -148,10 +150,9 @@ function uploadExcel() {
 }
 
 function downloadJSON(data) {
-    let json = JSON.stringify(data, null, 2);
-
-    let blob = new Blob([json], { type: "application/json" });
-    let link = document.createElement("a");
+    const json = JSON.stringify(data, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const link = document.createElement("a");
 
     link.href = URL.createObjectURL(blob);
     link.download = "data.json";
