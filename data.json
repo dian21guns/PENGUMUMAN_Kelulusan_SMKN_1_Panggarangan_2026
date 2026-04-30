@@ -1,20 +1,308 @@
 [
-  {"nisn":"0071717838","tanggal_lahir":"2007-12-10","tempat_lahir":"LEBAK","nama":"AIDA NURUL AENI","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=1","nilai":{"Pendidikan Agama dan Budi Pekerti":85,"Pendidikan Pancasila":85,"Bahasa Indonesia":86,"Matematika":80,"Bahasa Inggris":85,"Konsentrasi Keahlian":87}},
-  {"nisn":"0071752502","tanggal_lahir":"2007-11-06","tempat_lahir":"LEBAK","nama":"ANDI PIRMANSAH","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=2","nilai":{"Pendidikan Agama dan Budi Pekerti":81,"Pendidikan Pancasila":82,"Bahasa Indonesia":85,"Matematika":78,"Bahasa Inggris":80,"Konsentrasi Keahlian":84}},
-  {"nisn":"0078323927","tanggal_lahir":"2007-12-26","tempat_lahir":"LEBAK","nama":"ANJAR SAPUTRA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=3","nilai":{"Pendidikan Agama dan Budi Pekerti":75,"Pendidikan Pancasila":78,"Bahasa Indonesia":79,"Matematika":78,"Bahasa Inggris":76,"Konsentrasi Keahlian":79}},
-  {"nisn":"0087784362","tanggal_lahir":"2008-02-04","tempat_lahir":"LEBAK","nama":"ARIF SETIABUDI","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=4","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":83,"Bahasa Indonesia":85,"Matematika":78,"Bahasa Inggris":81,"Konsentrasi Keahlian":84}},
-  {"nisn":"0076244680","tanggal_lahir":"2007-10-07","tempat_lahir":"LEBAK","nama":"ARIL","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=5","nilai":{"Pendidikan Agama dan Budi Pekerti":82,"Pendidikan Pancasila":84,"Bahasa Indonesia":84,"Matematika":78,"Bahasa Inggris":80,"Konsentrasi Keahlian":85}},
-  {"nisn":"0072336055","tanggal_lahir":"2007-10-17","tempat_lahir":"LEBAK","nama":"CIKA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=6","nilai":{"Pendidikan Agama dan Budi Pekerti":81,"Pendidikan Pancasila":82,"Bahasa Indonesia":83,"Matematika":78,"Bahasa Inggris":81,"Konsentrasi Keahlian":84}},
-  {"nisn":"0046174744","tanggal_lahir":"2004-01-11","tempat_lahir":"LEBAK","nama":"DANI WIRANATA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=7","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":81,"Bahasa Indonesia":80,"Matematika":77,"Bahasa Inggris":80,"Konsentrasi Keahlian":82}},
-  {"nisn":"0079755192","tanggal_lahir":"2007-07-02","tempat_lahir":"LEBAK","nama":"DEPI ADELIA SARI","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=8","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":82,"Bahasa Indonesia":84,"Matematika":78,"Bahasa Inggris":82,"Konsentrasi Keahlian":83}},
-  {"nisn":"0063244120","tanggal_lahir":"2007-11-01","tempat_lahir":"LEBAK","nama":"EPAN SUENDAR","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=9","nilai":{"Pendidikan Agama dan Budi Pekerti":84,"Pendidikan Pancasila":84,"Bahasa Indonesia":85,"Matematika":79,"Bahasa Inggris":81,"Konsentrasi Keahlian":85}},
-  {"nisn":"0083655123","tanggal_lahir":"2008-05-10","tempat_lahir":"LEBAK","nama":"HENGKI IRWANSYAH","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=10","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":82,"Bahasa Indonesia":84,"Matematika":79,"Bahasa Inggris":81,"Konsentrasi Keahlian":84}},
-  {"nisn":"0081649710","tanggal_lahir":"2008-07-28","tempat_lahir":"LEBAK","nama":"HILWAN ISTREN KUSUMA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=11","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":81,"Bahasa Indonesia":85,"Matematika":78,"Bahasa Inggris":80,"Konsentrasi Keahlian":84}},
-  {"nisn":"0079183780","tanggal_lahir":"2007-04-08","tempat_lahir":"LEBAK","nama":"INDAH APRILIANI","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=12","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":82,"Bahasa Indonesia":83,"Matematika":79,"Bahasa Inggris":80,"Konsentrasi Keahlian":83}},
-  {"nisn":"0088876578","tanggal_lahir":"2008-07-23","tempat_lahir":"LEBAK","nama":"IRPAN JULIANSYAH","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=13","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":85,"Bahasa Indonesia":85,"Matematika":79,"Bahasa Inggris":83,"Konsentrasi Keahlian":86}},
-  {"nisn":"0077024622","tanggal_lahir":"2007-11-02","tempat_lahir":"LEBAK","nama":"JUWITA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=14","nilai":{"Pendidikan Agama dan Budi Pekerti":85,"Pendidikan Pancasila":85,"Bahasa Indonesia":87,"Matematika":80,"Bahasa Inggris":84,"Konsentrasi Keahlian":89}},
-  {"nisn":"0082528174","tanggal_lahir":"2008-11-14","tempat_lahir":"LEBAK","nama":"NADILA AL FADILLAH","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=15","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":82,"Bahasa Indonesia":85,"Matematika":79,"Bahasa Inggris":80,"Konsentrasi Keahlian":84}},
-  {"nisn":"0072694081","tanggal_lahir":"2007-11-07","tempat_lahir":"LEBAK","nama":"REFAN SETIAWAN","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=16","nilai":{"Pendidikan Agama dan Budi Pekerti":80,"Pendidikan Pancasila":83,"Bahasa Indonesia":84,"Matematika":78,"Bahasa Inggris":80,"Konsentrasi Keahlian":84}},
-  {"nisn":"0084978518","tanggal_lahir":"2008-09-22","tempat_lahir":"LEBAK","nama":"SAHWA ANISTIA","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=17","nilai":{"Pendidikan Agama dan Budi Pekerti":84,"Pendidikan Pancasila":85,"Bahasa Indonesia":87,"Matematika":80,"Bahasa Inggris":86,"Konsentrasi Keahlian":89}},
-  {"nisn":"0087993104","tanggal_lahir":"2008-11-17","tempat_lahir":"LEBAK","nama":"SUHENDRI","program_keahlian":"Manajemen Perkantoran dan Layanan Bisnis","status":"LULUS","foto":"https://i.pravatar.cc/240?img=18","nilai":{"Pendidikan Agama dan Budi Pekerti":81,"Pendidikan Pancasila":82,"Bahasa Indonesia":85,"Matematika":78,"Bahasa Inggris":80,"Konsentrasi Keahlian":83}}
+  {
+    "nisn": "0071717838",
+    "tanggal_lahir": "2007-12-10",
+    "tempat_lahir": "LEBAK",
+    "nama": "AIDA NURUL AENI",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0071717838.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 85,
+      "Pendidikan Pancasila": 85,
+      "Bahasa Indonesia": 86,
+      "Matematika": 80,
+      "Bahasa Inggris": 85,
+      "Konsentrasi Keahlian": 87
+    }
+  },
+  {
+    "nisn": "0071752502",
+    "tanggal_lahir": "2007-11-06",
+    "tempat_lahir": "LEBAK",
+    "nama": "ANDI PIRMANSAH",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0071752502.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 81,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 85,
+      "Matematika": 78,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0078323927",
+    "tanggal_lahir": "2007-12-26",
+    "tempat_lahir": "LEBAK",
+    "nama": "ANJAR SAPUTRA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0078323927.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 75,
+      "Pendidikan Pancasila": 78,
+      "Bahasa Indonesia": 79,
+      "Matematika": 78,
+      "Bahasa Inggris": 76,
+      "Konsentrasi Keahlian": 79
+    }
+  },
+  {
+    "nisn": "0087784362",
+    "tanggal_lahir": "2008-02-04",
+    "tempat_lahir": "LEBAK",
+    "nama": "ARIF SETIABUDI",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0087784362.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 83,
+      "Bahasa Indonesia": 85,
+      "Matematika": 78,
+      "Bahasa Inggris": 81,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0076244680",
+    "tanggal_lahir": "2007-10-07",
+    "tempat_lahir": "LEBAK",
+    "nama": "ARIL",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0076244680.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 82,
+      "Pendidikan Pancasila": 84,
+      "Bahasa Indonesia": 84,
+      "Matematika": 78,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 85
+    }
+  },
+  {
+    "nisn": "0072336055",
+    "tanggal_lahir": "2007-10-17",
+    "tempat_lahir": "LEBAK",
+    "nama": "CIKA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0072336055.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 81,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 83,
+      "Matematika": 78,
+      "Bahasa Inggris": 81,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0046174744",
+    "tanggal_lahir": "2004-01-11",
+    "tempat_lahir": "LEBAK",
+    "nama": "DANI WIRANATA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0046174744.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 81,
+      "Bahasa Indonesia": 80,
+      "Matematika": 77,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 82
+    }
+  },
+  {
+    "nisn": "0079755192",
+    "tanggal_lahir": "2007-07-02",
+    "tempat_lahir": "LEBAK",
+    "nama": "DEPI ADELIA SARI",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0079755192.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 84,
+      "Matematika": 78,
+      "Bahasa Inggris": 82,
+      "Konsentrasi Keahlian": 83
+    }
+  },
+  {
+    "nisn": "0063244120",
+    "tanggal_lahir": "2007-11-01",
+    "tempat_lahir": "LEBAK",
+    "nama": "EPAN SUENDAR",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0063244120.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 84,
+      "Pendidikan Pancasila": 84,
+      "Bahasa Indonesia": 85,
+      "Matematika": 79,
+      "Bahasa Inggris": 81,
+      "Konsentrasi Keahlian": 85
+    }
+  },
+  {
+    "nisn": "0083655123",
+    "tanggal_lahir": "2008-05-10",
+    "tempat_lahir": "LEBAK",
+    "nama": "HENGKI IRWANSYAH",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0083655123.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 84,
+      "Matematika": 79,
+      "Bahasa Inggris": 81,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0081649710",
+    "tanggal_lahir": "2008-07-28",
+    "tempat_lahir": "LEBAK",
+    "nama": "HILWAN ISTREN KUSUMA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0081649710.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 81,
+      "Bahasa Indonesia": 85,
+      "Matematika": 78,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0079183780",
+    "tanggal_lahir": "2007-04-08",
+    "tempat_lahir": "LEBAK",
+    "nama": "INDAH APRILIANI",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0079183780.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 83,
+      "Matematika": 79,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 83
+    }
+  },
+  {
+    "nisn": "0088876578",
+    "tanggal_lahir": "2008-07-23",
+    "tempat_lahir": "LEBAK",
+    "nama": "IRPAN JULIANSYAH",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0088876578.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 85,
+      "Bahasa Indonesia": 85,
+      "Matematika": 79,
+      "Bahasa Inggris": 83,
+      "Konsentrasi Keahlian": 86
+    }
+  },
+  {
+    "nisn": "0077024622",
+    "tanggal_lahir": "2007-11-02",
+    "tempat_lahir": "LEBAK",
+    "nama": "JUWITA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0077024622.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 85,
+      "Pendidikan Pancasila": 85,
+      "Bahasa Indonesia": 87,
+      "Matematika": 80,
+      "Bahasa Inggris": 84,
+      "Konsentrasi Keahlian": 89
+    }
+  },
+  {
+    "nisn": "0082528174",
+    "tanggal_lahir": "2008-11-14",
+    "tempat_lahir": "LEBAK",
+    "nama": "NADILA AL FADILLAH",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0082528174.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 85,
+      "Matematika": 79,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0072694081",
+    "tanggal_lahir": "2007-11-07",
+    "tempat_lahir": "LEBAK",
+    "nama": "REFAN SETIAWAN",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0072694081.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 80,
+      "Pendidikan Pancasila": 83,
+      "Bahasa Indonesia": 84,
+      "Matematika": 78,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 84
+    }
+  },
+  {
+    "nisn": "0084978518",
+    "tanggal_lahir": "2008-09-22",
+    "tempat_lahir": "LEBAK",
+    "nama": "SAHWA ANISTIA",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0084978518.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 84,
+      "Pendidikan Pancasila": 85,
+      "Bahasa Indonesia": 87,
+      "Matematika": 80,
+      "Bahasa Inggris": 86,
+      "Konsentrasi Keahlian": 89
+    }
+  },
+  {
+    "nisn": "0087993104",
+    "tanggal_lahir": "2008-11-17",
+    "tempat_lahir": "LEBAK",
+    "nama": "SUHENDRI",
+    "program_keahlian": "Manajemen Perkantoran dan Layanan Bisnis",
+    "status": "LULUS",
+    "foto": "photos/0087993104.jpg",
+    "nilai": {
+      "Pendidikan Agama dan Budi Pekerti": 81,
+      "Pendidikan Pancasila": 82,
+      "Bahasa Indonesia": 85,
+      "Matematika": 78,
+      "Bahasa Inggris": 80,
+      "Konsentrasi Keahlian": 83
+    }
+  }
 ]
