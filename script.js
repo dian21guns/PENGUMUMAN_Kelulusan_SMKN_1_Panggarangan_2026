@@ -1,32 +1,27 @@
 async function cekKelulusan() {
     const nisnInput = document.getElementById("nisn").value.trim();
-    const hasil = document.getElementById("hasil");
 
-    hasil.style.display = "block";
+    if (!nisnInput) {
+        alert("Silakan masukkan NISN!");
+        return;
+    }
 
     try {
-        const response = await fetch("./data.json");
-
-        if (!response.ok) {
-            hasil.innerHTML = "File data.json tidak ditemukan!";
-            return;
-        }
-
+        const response = await fetch("data.json");
         const data = await response.json();
 
         const siswa = data.find(s => s.nisn === nisnInput);
 
         if (siswa) {
-            hasil.innerHTML = `
-                Nama: ${siswa.nama}<br>
-                Status: ${siswa.status}
-            `;
+            // PINDAH HALAMAN
+            const url = `hasil.html?nama=${encodeURIComponent(siswa.nama)}&nisn=${siswa.nisn}&status=${siswa.status}`;
+            window.location.href = url;
         } else {
-            hasil.innerHTML = "NISN tidak ditemukan";
+            alert("Data tidak ditemukan!");
         }
 
     } catch (error) {
-        hasil.innerHTML = "Error: " + error.message;
+        alert("Terjadi kesalahan!");
         console.error(error);
     }
 }
