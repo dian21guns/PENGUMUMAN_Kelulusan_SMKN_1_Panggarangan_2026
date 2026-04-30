@@ -1,22 +1,54 @@
 [
   {
     "nisn": "0071421202",
+    "tanggal_lahir": "2008-03-14",
     "nama": "ALBI PERNANDA",
-    "status": "LULUS"
+    "status": "LULUS",
+    "foto": "https://i.pravatar.cc/240?img=12",
+    "nilai": {
+      "Matematika": 88,
+      "Bahasa Indonesia": 90,
+      "Bahasa Inggris": 86,
+      "Produktif": 92
+    }
   },
   {
     "nisn": "0071421203",
+    "tanggal_lahir": "2008-06-22",
     "nama": "BUDI SANTOSO",
-    "status": "TIDAK LULUS"
+    "status": "TIDAK LULUS",
+    "foto": "https://i.pravatar.cc/240?img=15",
+    "nilai": {
+      "Matematika": 65,
+      "Bahasa Indonesia": 70,
+      "Bahasa Inggris": 62,
+      "Produktif": 68
+    }
   },
   {
     "nisn": "0071421204",
+    "tanggal_lahir": "2008-01-10",
     "nama": "SITI AMINAH",
-    "status": "LULUS"
+    "status": "LULUS",
+    "foto": "https://i.pravatar.cc/240?img=32",
+    "nilai": {
+      "Matematika": 91,
+      "Bahasa Indonesia": 89,
+      "Bahasa Inggris": 93,
+      "Produktif": 90
+    }
   },
   {
     "nisn": "0071421205",
+    "tanggal_lahir": "2008-09-03",
     "nama": "RAHMAT HIDAYAT",
-    "status": "LULUS"
+    "status": "LULUS",
+    "foto": "https://i.pravatar.cc/240?img=21",
+    "nilai": {
+      "Matematika": 84,
+      "Bahasa Indonesia": 87,
+      "Bahasa Inggris": 83,
+      "Produktif": 88
+    }
   }
 ]
