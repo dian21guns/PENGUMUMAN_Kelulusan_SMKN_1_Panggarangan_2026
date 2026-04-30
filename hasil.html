@@ -1,54 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Hasil Kelulusan</title>
-
-<style>
-body {
-    font-family: Arial;
-    text-align: center;
-    padding: 50px;
-    background: #0a1931;
-    color: white;
-}
-
-.box {
-    background: rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 15px;
-    display: inline-block;
-}
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hasil Kelulusan</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="body-hasil">
+  <main class="hasil-wrap">
+    <img src="logo_sekolah.png" alt="Logo Sekolah" class="logo-hasil" />
+    <h2 class="judul-data">Data Siswa</h2>
+    <img id="fotoSiswa" alt="Foto Siswa" class="foto-siswa" />
 
-<div class="box">
-    <h2>HASIL KELULUSAN</h2>
-    <p id="nama"></p>
-    <p id="nisn"></p>
-    <h3 id="status"></h3>
-</div>
+    <table class="table-identitas">
+      <tr><th>Nama</th><td id="nama"></td></tr>
+      <tr><th>NISN</th><td id="nisn"></td></tr>
+      <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
+      <tr><th>Kompetensi Keahlian</th><td id="kompetensi"></td></tr>
+      <tr><th>Status</th><td id="status"></td></tr>
+    </table>
 
-<script>
-const params = new URLSearchParams(window.location.search);
+    <h2 class="judul-nilai">Nilai Siswa</h2>
 
-const nama = params.get("nama");
-const nisn = params.get("nisn");
-const status = params.get("status");
+    <table class="table-nilai">
+      <thead><tr><th>Mata Pelajaran</th><th>Nilai</th></tr></thead>
+      <tbody id="listNilai"></tbody>
+      <tfoot><tr><th>Rata-rata</th><td id="rataRata"></td></tr></tfoot>
+    </table>
 
-document.getElementById("nama").innerHTML = "Nama: " + nama;
-document.getElementById("nisn").innerHTML = "NISN: " + nisn;
+    <button class="btn-cetak" onclick="window.print()">Cetak Bukti Kelulusan</button>
+  </main>
 
-if (status === "LULUS") {
-    document.getElementById("status").innerHTML = "🎉 SELAMAT, ANDA LULUS!";
-    document.getElementById("status").style.color = "lightgreen";
-} else {
-    document.getElementById("status").innerHTML = "ANDA TIDAK LULUS";
-    document.getElementById("status").style.color = "red";
-}
-</script>
+  <script>
+    (function renderHasil() {
+      const raw = sessionStorage.getItem('hasil_kelulusan');
+      if (!raw) {
+        alert('Data hasil tidak ada. Silakan cek lagi dari halaman utama.');
+        window.location.href = 'index.html';
+        return;
+      }
 
+      const siswa = JSON.parse(raw);
+      document.getElementById('fotoSiswa').src = siswa.foto || '';
+      document.getElementById('nama').textContent = siswa.nama || '-';
+      document.getElementById('nisn').textContent = siswa.nisn || '-';
+      document.getElementById('ttl').textContent = `${siswa.tempat_lahir || '-'}, ${siswa.tanggal_lahir || '-'}`;
+      document.getElementById('kompetensi').textContent = siswa.kompetensi_keahlian || '-';
+
+      const statusEl = document.getElementById('status');
+      const lulus = (siswa.status || '').toUpperCase() === 'LULUS';
+      statusEl.textContent = lulus ? 'Lulus' : 'Tidak Lulus';
+      statusEl.className = lulus ? 'status-lulus' : 'status-tidak-lulus';
+
+      const nilai = siswa.nilai || {};
+      const list = document.getElementById('listNilai');
+      let total = 0;
+      let count = 0;
+
+      Object.entries(nilai).forEach(([mapel, skor]) => {
+        const angka = Number(skor) || 0;
+        total += angka;
+        count += 1;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${mapel}</td><td>${angka}</td>`;
+        list.appendChild(tr);
+      });
+
+      document.getElementById('rataRata').textContent = count ? (total / count).toFixed(2) : '-';
+    })();
+  </script>
 </body>
 </html>
