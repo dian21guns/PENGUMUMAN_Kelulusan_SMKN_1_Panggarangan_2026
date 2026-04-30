@@ -1,18 +1,18 @@
-function normalisasiNisn(nisn = "") {
-  return String(nisn).replace(/\D/g, "").trim();
+function normalizeNisn(value = "") {
+  return String(value).replace(/\D/g, "").trim();
 }
 
-function normalisasiTanggal(tanggal = "") {
-  const raw = String(tanggal).trim();
+function normalizeDate(value = "") {
+  const raw = String(value).trim();
   if (!raw) return "";
 
   if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
 
-  const dmy = raw.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
-  if (dmy) {
-    const dd = dmy[1].padStart(2, "0");
-    const mm = dmy[2].padStart(2, "0");
-    const yyyy = dmy[3];
+  const m = raw.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/);
+  if (m) {
+    const dd = m[1].padStart(2, "0");
+    const mm = m[2].padStart(2, "0");
+    const yyyy = m[3];
     return `${yyyy}-${mm}-${dd}`;
   }
 
@@ -20,34 +20,32 @@ function normalisasiTanggal(tanggal = "") {
 }
 
 async function cekKelulusan() {
-  const nisnInput = normalisasiNisn(document.getElementById("nisn").value);
-  const tglInput = normalisasiTanggal(document.getElementById("tanggalLahir").value);
+  const nisnInput = normalizeNisn(document.getElementById("nisn").value);
+  const tglInput = normalizeDate(document.getElementById("tanggalLahir").value);
 
   if (!nisnInput || !tglInput) {
-    alert("Silakan isi NISN dan Tanggal Lahir terlebih dahulu.");
+    alert("Silakan masukkan NISN dan Tanggal Lahir.");
     return;
   }
 
   try {
-    const response = await fetch("data.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("Gagal membaca data.json");
+    const res = await fetch("data.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Gagal memuat data siswa");
 
-    const data = await response.json();
-    const siswa = data.find((item) => {
-      const nisnData = normalisasiNisn(item.nisn);
-      const tglData = normalisasiTanggal(item.tanggal_lahir);
-      return nisnData === nisnInput && tglData === tglInput;
-    });
+    const siswaList = await res.json();
+    const siswa = siswaList.find((s) => (
+      normalizeNisn(s.nisn) === nisnInput && normalizeDate(s.tanggal_lahir) === tglInput
+    ));
 
     if (!siswa) {
-      alert("Data siswa tidak ditemukan. Periksa lagi NISN dan Tanggal Lahir.");
+      alert("Data siswa tidak ditemukan. Pastikan NISN dan Tanggal Lahir sesuai data sekolah.");
       return;
     }
 
     sessionStorage.setItem("hasil_kelulusan", JSON.stringify(siswa));
     window.location.href = "hasil.html";
-  } catch (error) {
-    console.error(error);
-    alert("Terjadi kesalahan saat mengambil data kelulusan.");
+  } catch (err) {
+    console.error(err);
+    alert("Terjadi kesalahan sistem saat memeriksa data.");
   }
 }

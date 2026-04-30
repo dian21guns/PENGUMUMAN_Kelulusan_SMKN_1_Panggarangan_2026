@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hasil Kelulusan</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="body-hasil">
-  <div class="hasil-wrap">
-    <img id="fotoSiswa" class="foto-preview" alt="Foto Siswa">
+  <main class="hasil-wrap">
+    <img src="logo_sekolah.png" alt="Logo Sekolah" class="logo-hasil" />
+    <h2 class="judul-data">Data Siswa</h2>
+    <img id="fotoSiswa" alt="Foto Siswa" class="foto-siswa" />
 
-    <table class="tabel-identitas">
+    <table class="table-identitas">
       <tr><th>Nama</th><td id="nama"></td></tr>
       <tr><th>NISN</th><td id="nisn"></td></tr>
       <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
@@ -20,24 +22,20 @@
 
     <h2 class="judul-nilai">Nilai Siswa</h2>
 
-    <table class="tabel-nilai">
-      <thead>
-        <tr><th>Mata Pelajaran</th><th>Nilai</th></tr>
-      </thead>
-      <tbody id="daftarNilai"></tbody>
-      <tfoot>
-        <tr><th>Rata-rata</th><td id="rataRata"></td></tr>
-      </tfoot>
+    <table class="table-nilai">
+      <thead><tr><th>Mata Pelajaran</th><th>Nilai</th></tr></thead>
+      <tbody id="listNilai"></tbody>
+      <tfoot><tr><th>Rata-rata</th><td id="rataRata"></td></tr></tfoot>
     </table>
 
     <button class="btn-cetak" onclick="window.print()">Cetak Bukti Kelulusan</button>
-  </div>
+  </main>
 
   <script>
-    (function () {
+    (function renderHasil() {
       const raw = sessionStorage.getItem('hasil_kelulusan');
       if (!raw) {
-        alert('Data hasil tidak ditemukan. Silakan ulangi dari halaman utama.');
+        alert('Data hasil tidak ada. Silakan cek lagi dari halaman utama.');
         window.location.href = 'index.html';
         return;
       }
@@ -50,16 +48,12 @@
       document.getElementById('kompetensi').textContent = siswa.kompetensi_keahlian || '-';
 
       const statusEl = document.getElementById('status');
-      if ((siswa.status || '').toUpperCase() === 'LULUS') {
-        statusEl.textContent = 'Lulus';
-        statusEl.className = 'status-lulus';
-      } else {
-        statusEl.textContent = 'Tidak Lulus';
-        statusEl.className = 'status-tidak-lulus';
-      }
+      const lulus = (siswa.status || '').toUpperCase() === 'LULUS';
+      statusEl.textContent = lulus ? 'Lulus' : 'Tidak Lulus';
+      statusEl.className = lulus ? 'status-lulus' : 'status-tidak-lulus';
 
       const nilai = siswa.nilai || {};
-      const tbody = document.getElementById('daftarNilai');
+      const list = document.getElementById('listNilai');
       let total = 0;
       let count = 0;
 
@@ -67,10 +61,9 @@
         const angka = Number(skor) || 0;
         total += angka;
         count += 1;
-
         const tr = document.createElement('tr');
         tr.innerHTML = `<td>${mapel}</td><td>${angka}</td>`;
-        tbody.appendChild(tr);
+        list.appendChild(tr);
       });
 
       document.getElementById('rataRata').textContent = count ? (total / count).toFixed(2) : '-';

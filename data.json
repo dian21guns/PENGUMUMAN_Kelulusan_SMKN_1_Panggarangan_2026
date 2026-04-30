@@ -15,5 +15,22 @@
       "Bahasa Inggris": 78,
       "Konsentrasi Keahlian": 83
     }
+  },
+  {
+    "nisn": "0071421203",
+    "tanggal_lahir": "2007-07-21",
+    "tempat_lahir": "LEBAK",
+    "nama": "BUDI SANTOSO",
+    "kompetensi_keahlian": "Teknik Komputer dan Jaringan",
+    "status": "TIDAK LULUS",
+    "foto": "https://i.imgur.com/U3vTGjX.jpeg",
+    "nilai": {
+      "Pendidikan Agama Islam": 70,
+      "Pendidikan Kewarganegaraan": 71,
+      "Bahasa Indonesia": 68,
+      "Matematika": 62,
+      "Bahasa Inggris": 66,
+      "Konsentrasi Keahlian": 69
+    }
   }
 ]
