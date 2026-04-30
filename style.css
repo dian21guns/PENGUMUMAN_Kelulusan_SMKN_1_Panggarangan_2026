@@ -20,6 +20,8 @@ body { margin: 0; font-family: 'Poppins', sans-serif; }
   padding: 28px;
   text-align: center;
 }
+.tabel-identitas th { width: 220px; text-align: left; }
+.tabel-identitas td { color: #3f4f5f; }
 
 .logo { width: 90px; margin-bottom: 8px; }
 h1 { font-size: 38px; line-height: 1.35; margin: 10px 0; }
