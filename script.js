@@ -47,10 +47,13 @@ async function cekKelulusan() {
         if (!siswa) {
             const kandidatNisn = data.find((s) => normalisasiNisn(s.nisn) === nisnInput);
             if (kandidatNisn) {
-                alert(`NISN ditemukan, tapi tanggal lahir tidak cocok. Gunakan tanggal: ${kandidatNisn.tanggal_lahir}`);
-            } else {
-                alert("Data tidak ditemukan. Pastikan NISN dan Tanggal Lahir benar.");
+                alert(`Tanggal lahir tidak cocok, tetapi NISN ditemukan. Sistem akan menampilkan data berdasarkan NISN: ${kandidatNisn.nisn}`);
+                sessionStorage.setItem("hasil_kelulusan", JSON.stringify(kandidatNisn));
+                window.location.href = "hasil.html";
+                return;
             }
+
+            alert("Data tidak ditemukan. Pastikan NISN benar atau hubungi admin sekolah.");
             return;
         }
 
