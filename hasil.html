@@ -6,75 +6,75 @@
 <title>Hasil Kelulusan</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="hasil-page">
+<body class="body-hasil">
+<div class="hasil-wrap">
+    <img id="fotoSiswa" class="foto-preview" alt="Foto Siswa">
 
-<div class="card-hasil" id="cardHasil">
-    <img src="logo_sekolah.png" alt="Logo Sekolah" class="logo-hasil">
-    <h2>HASIL KELULUSAN</h2>
-    <img id="fotoSiswa" class="foto-siswa" alt="Foto Siswa">
-    <p id="nama"></p>
-    <p id="nisn"></p>
+    <table class="tabel-identitas">
+        <tr><th>Nama</th><td id="nama"></td></tr>
+        <tr><th>NISN</th><td id="nisn"></td></tr>
+        <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
+        <tr><th>Kompetensi Keahlian</th><td id="kompetensi"></td></tr>
+        <tr><th>Status</th><td id="status"></td></tr>
+    </table>
 
-    <div class="nilai-box">
-        <h3>Nilai Siswa</h3>
-        <ul id="daftarNilai"></ul>
-        <p id="rataRata"></p>
-    </div>
+    <h2 class="judul-nilai">Nilai Siswa</h2>
 
-    <h3 id="status" class="status"></h3>
-    <button onclick="window.location.href='index.html'">Kembali</button>
+    <table class="tabel-nilai">
+        <thead>
+            <tr>
+                <th>Mata Pelajaran</th>
+                <th>Nilai</th>
+            </tr>
+        </thead>
+        <tbody id="daftarNilai"></tbody>
+        <tfoot>
+            <tr>
+                <th>Rata-rata</th>
+                <td id="rataRata"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button class="btn-cetak" onclick="window.print()">Cetak Bukti Kelulusan</button>
 </div>
 
 <script>
 (function tampilkanHasil() {
     const raw = sessionStorage.getItem("hasil_kelulusan");
-
     if (!raw) {
-        alert("Data hasil tidak ditemukan. Silakan cek kelulusan dari halaman utama.");
+        alert("Data hasil tidak ditemukan. Silakan cek dari halaman utama.");
         window.location.href = "index.html";
         return;
     }
 
     const siswa = JSON.parse(raw);
-
-    document.getElementById("nama").textContent = `Nama: ${siswa.nama}`;
-    document.getElementById("nisn").textContent = `NISN: ${siswa.nisn}`;
-    document.getElementById("fotoSiswa").src = siswa.foto || "https://via.placeholder.com/120x150?text=Foto";
-
-    const daftarNilai = document.getElementById("daftarNilai");
-    daftarNilai.innerHTML = "";
-
-    const nilaiObj = siswa.nilai || {};
-    const mapel = Object.keys(nilaiObj);
-
-    if (mapel.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "Nilai belum tersedia";
-        daftarNilai.appendChild(li);
-        document.getElementById("rataRata").textContent = "Rata-rata: -";
-    } else {
-        const total = mapel.reduce((sum, key) => {
-            const nilai = Number(nilaiObj[key]) || 0;
-            const li = document.createElement("li");
-            li.textContent = `${key}: ${nilai}`;
-            daftarNilai.appendChild(li);
-            return sum + nilai;
-        }, 0);
-
-        const rata = (total / mapel.length).toFixed(2);
-        document.getElementById("rataRata").textContent = `Rata-rata: ${rata}`;
-    }
+    document.getElementById("fotoSiswa").src = siswa.foto;
+    document.getElementById("nama").textContent = siswa.nama;
+    document.getElementById("nisn").textContent = siswa.nisn;
+    document.getElementById("ttl").textContent = `${siswa.tempat_lahir}, ${siswa.tanggal_lahir}`;
+    document.getElementById("kompetensi").textContent = siswa.kompetensi_keahlian;
 
     const statusEl = document.getElementById("status");
-    if (siswa.status === "LULUS") {
-        statusEl.textContent = "🎉 SELAMAT, ANDA LULUS!";
-        statusEl.classList.add("lulus");
-    } else {
-        statusEl.textContent = "ANDA TIDAK LULUS";
-        statusEl.classList.add("tidak-lulus");
-    }
+    statusEl.textContent = siswa.status === "LULUS" ? "Lulus" : "Tidak Lulus";
+    statusEl.className = siswa.status === "LULUS" ? "status-lulus" : "status-tidak-lulus";
+
+    const nilai = siswa.nilai || {};
+    const daftarNilai = document.getElementById("daftarNilai");
+
+    let total = 0;
+    let jumlah = 0;
+
+    Object.entries(nilai).forEach(([mapel, skor]) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${mapel}</td><td>${skor}</td>`;
+        daftarNilai.appendChild(tr);
+        total += Number(skor) || 0;
+        jumlah += 1;
+    });
+
+    document.getElementById("rataRata").textContent = jumlah ? (total / jumlah).toFixed(2) : "-";
 })();
 </script>
-
 </body>
 </html>
