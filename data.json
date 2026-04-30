@@ -1,18 +1,22 @@
 [
   {
-    "nis": 12345678,
-    "nisn": 67891234,
-    "nama": "Budi Santoso",
-    "kelas": "XII TKJ 1",
-    "foto": "https://dian21guns.github.io/soaldian/logo.png",
+    "nisn": "0071421202",
+    "nama": "ALBI PERNANDA",
     "status": "LULUS"
   },
   {
-    "nis": 87654321,
-    "nisn": 23456789,
-    "nama": "Siti Aminah",
-    "kelas": "XII RPL 2",
-    "foto": "https://dian21guns.github.io/soaldian/logo.png",
+    "nisn": "0071421203",
+    "nama": "BUDI SANTOSO",
     "status": "TIDAK LULUS"
+  },
+  {
+    "nisn": "0071421204",
+    "nama": "SITI AMINAH",
+    "status": "LULUS"
+  },
+  {
+    "nisn": "0071421205",
+    "nama": "RAHMAT HIDAYAT",
+    "status": "LULUS"
   }
 ]
