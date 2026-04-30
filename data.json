@@ -1,22 +1,19 @@
 [
   {
     "nisn": "0071421202",
+    "tanggal_lahir": "2007-05-10",
+    "tempat_lahir": "LEBAK",
     "nama": "ALBI PERNANDA",
-    "status": "LULUS"
-  },
-  {
-    "nisn": "0071421203",
-    "nama": "BUDI SANTOSO",
-    "status": "TIDAK LULUS"
-  },
-  {
-    "nisn": "0071421204",
-    "nama": "SITI AMINAH",
-    "status": "LULUS"
-  },
-  {
-    "nisn": "0071421205",
-    "nama": "RAHMAT HIDAYAT",
-    "status": "LULUS"
+    "kompetensi_keahlian": "Otomatisasi Dan Tata Kelola Perkantoran",
+    "status": "LULUS",
+    "foto": "https://i.imgur.com/92xqXQx.jpeg",
+    "nilai": {
+      "Pendidikan Agama Islam": 85,
+      "Pendidikan Kewarganegaraan": 82,
+      "Bahasa Indonesia": 82,
+      "Matematika": 80,
+      "Bahasa Inggris": 78,
+      "Konsentrasi Keahlian": 83
+    }
   }
 ]
