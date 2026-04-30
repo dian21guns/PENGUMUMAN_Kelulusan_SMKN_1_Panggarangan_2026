@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Hasil Kelulusan</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    padding: 50px;
+    background: #0a1931;
+    color: white;
+}
+
+.box {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+    <h2>HASIL KELULUSAN</h2>
+    <p id="nama"></p>
+    <p id="nisn"></p>
+    <h3 id="status"></h3>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const nama = params.get("nama");
+const nisn = params.get("nisn");
+const status = params.get("status");
+
+document.getElementById("nama").innerHTML = "Nama: " + nama;
+document.getElementById("nisn").innerHTML = "NISN: " + nisn;
+
+if (status === "LULUS") {
+    document.getElementById("status").innerHTML = "🎉 SELAMAT, ANDA LULUS!";
+    document.getElementById("status").style.color = "lightgreen";
+} else {
+    document.getElementById("status").innerHTML = "ANDA TIDAK LULUS";
+    document.getElementById("status").style.color = "red";
+}
+</script>
+
+</body>
+</html>
