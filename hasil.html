@@ -59,10 +59,11 @@
 
       Object.entries(nilai).forEach(([mapel, skor]) => {
         const angka = Number(skor) || 0;
+        const namaMapel = mapel === 'MTK' ? 'Matematika' : mapel;
         total += angka;
         count += 1;
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${mapel}</td><td>${angka}</td>`;
+        tr.innerHTML = `<td>${namaMapel}</td><td>${angka}</td>`;
         list.appendChild(tr);
       });
 
