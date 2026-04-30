@@ -13,9 +13,8 @@ async function cekKelulusan() {
         const siswa = data.find(s => s.nisn === nisnInput);
 
         if (siswa) {
-            // PINDAH HALAMAN
-            const url = `hasil.html?nama=${encodeURIComponent(siswa.nama)}&nisn=${siswa.nisn}&status=${siswa.status}`;
-            window.location.href = url;
+            // PINDAH HALAMAN (INI KUNCI NYA)
+            window.location.href = `hasil.html?nama=${encodeURIComponent(siswa.nama)}&nisn=${siswa.nisn}&status=${siswa.status}`;
         } else {
             alert("Data tidak ditemukan!");
         }
@@ -25,3 +24,4 @@ async function cekKelulusan() {
         console.error(error);
     }
 }
+
