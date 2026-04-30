@@ -2,52 +2,79 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hasil Kelulusan</title>
-
-<style>
-body {
-    font-family: Arial;
-    text-align: center;
-    padding: 50px;
-    background: #0a1931;
-    color: white;
-}
-
-.box {
-    background: rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 15px;
-    display: inline-block;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="hasil-page">
 
-<div class="box">
+<div class="card-hasil" id="cardHasil">
+    <img src="logo_sekolah.png" alt="Logo Sekolah" class="logo-hasil">
     <h2>HASIL KELULUSAN</h2>
+    <img id="fotoSiswa" class="foto-siswa" alt="Foto Siswa">
     <p id="nama"></p>
     <p id="nisn"></p>
-    <h3 id="status"></h3>
+
+    <div class="nilai-box">
+        <h3>Nilai Siswa</h3>
+        <ul id="daftarNilai"></ul>
+        <p id="rataRata"></p>
+    </div>
+
+    <h3 id="status" class="status"></h3>
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
+(async function tampilkanHasil() {
+    const params = new URLSearchParams(window.location.search);
+    const nisn = params.get("nisn");
 
-const nama = params.get("nama");
-const nisn = params.get("nisn");
-const status = params.get("status");
+    if (!nisn) {
+        alert("NISN tidak ditemukan pada URL.");
+        return;
+    }
 
-document.getElementById("nama").innerHTML = "Nama: " + nama;
-document.getElementById("nisn").innerHTML = "NISN: " + nisn;
+    try {
+        const response = await fetch("data.json");
+        const data = await response.json();
+        const siswa = data.find((s) => s.nisn === nisn);
 
-if (status === "LULUS") {
-    document.getElementById("status").innerHTML = "🎉 SELAMAT, ANDA LULUS!";
-    document.getElementById("status").style.color = "lightgreen";
-} else {
-    document.getElementById("status").innerHTML = "ANDA TIDAK LULUS";
-    document.getElementById("status").style.color = "red";
-}
+        if (!siswa) {
+            alert("Data siswa tidak ditemukan.");
+            return;
+        }
+
+        document.getElementById("nama").textContent = `Nama: ${siswa.nama}`;
+        document.getElementById("nisn").textContent = `NISN: ${siswa.nisn}`;
+        document.getElementById("fotoSiswa").src = siswa.foto;
+
+        const daftarNilai = document.getElementById("daftarNilai");
+        daftarNilai.innerHTML = "";
+
+        const mapel = Object.keys(siswa.nilai);
+        const total = mapel.reduce((sum, key) => {
+            const li = document.createElement("li");
+            li.textContent = `${key}: ${siswa.nilai[key]}`;
+            daftarNilai.appendChild(li);
+            return sum + siswa.nilai[key];
+        }, 0);
+
+        const rata = (total / mapel.length).toFixed(2);
+        document.getElementById("rataRata").textContent = `Rata-rata: ${rata}`;
+
+        const statusEl = document.getElementById("status");
+        if (siswa.status === "LULUS") {
+            statusEl.textContent = "🎉 SELAMAT, ANDA LULUS!";
+            statusEl.classList.add("lulus");
+        } else {
+            statusEl.textContent = "ANDA TIDAK LULUS";
+            statusEl.classList.add("tidak-lulus");
+        }
+    } catch (error) {
+        alert("Terjadi kesalahan saat memuat hasil.");
+        console.error(error);
+    }
+})();
 </script>
 
 </body>
