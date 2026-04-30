@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hasil Kelulusan</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Kelulusan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="body-hasil">
-<div class="hasil-wrap">
+  <div class="hasil-wrap">
     <img id="fotoSiswa" class="foto-preview" alt="Foto Siswa">
 
     <table class="tabel-identitas">
-        <tr><th>Nama</th><td id="nama"></td></tr>
-        <tr><th>NISN</th><td id="nisn"></td></tr>
-        <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
-        <tr><th>Kompetensi Keahlian</th><td id="kompetensi"></td></tr>
-        <tr><th>Status</th><td id="status"></td></tr>
+      <tr><th>Nama</th><td id="nama"></td></tr>
+      <tr><th>NISN</th><td id="nisn"></td></tr>
+      <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
+      <tr><th>Kompetensi Keahlian</th><td id="kompetensi"></td></tr>
+      <tr><th>Status</th><td id="status"></td></tr>
     </table>
 
     <h2 class="judul-nilai">Nilai Siswa</h2>
 
     <table class="tabel-nilai">
-        <thead>
-            <tr>
-                <th>Mata Pelajaran</th>
-                <th>Nilai</th>
-            </tr>
-        </thead>
-        <tbody id="daftarNilai"></tbody>
-        <tfoot>
-            <tr>
-                <th>Rata-rata</th>
-                <td id="rataRata"></td>
-            </tr>
-        </tfoot>
+      <thead>
+        <tr><th>Mata Pelajaran</th><th>Nilai</th></tr>
+      </thead>
+      <tbody id="daftarNilai"></tbody>
+      <tfoot>
+        <tr><th>Rata-rata</th><td id="rataRata"></td></tr>
+      </tfoot>
     </table>
 
     <button class="btn-cetak" onclick="window.print()">Cetak Bukti Kelulusan</button>
-</div>
+  </div>
 
-<script>
-(function tampilkanHasil() {
-    const raw = sessionStorage.getItem("hasil_kelulusan");
-    if (!raw) {
-        alert("Data hasil tidak ditemukan. Silakan cek dari halaman utama.");
-        window.location.href = "index.html";
+  <script>
+    (function () {
+      const raw = sessionStorage.getItem('hasil_kelulusan');
+      if (!raw) {
+        alert('Data hasil tidak ditemukan. Silakan ulangi dari halaman utama.');
+        window.location.href = 'index.html';
         return;
-    }
+      }
 
-    const siswa = JSON.parse(raw);
-    document.getElementById("fotoSiswa").src = siswa.foto;
-    document.getElementById("nama").textContent = siswa.nama;
-    document.getElementById("nisn").textContent = siswa.nisn;
-    document.getElementById("ttl").textContent = `${siswa.tempat_lahir}, ${siswa.tanggal_lahir}`;
-    document.getElementById("kompetensi").textContent = siswa.kompetensi_keahlian;
+      const siswa = JSON.parse(raw);
+      document.getElementById('fotoSiswa').src = siswa.foto || '';
+      document.getElementById('nama').textContent = siswa.nama || '-';
+      document.getElementById('nisn').textContent = siswa.nisn || '-';
+      document.getElementById('ttl').textContent = `${siswa.tempat_lahir || '-'}, ${siswa.tanggal_lahir || '-'}`;
+      document.getElementById('kompetensi').textContent = siswa.kompetensi_keahlian || '-';
 
-    const statusEl = document.getElementById("status");
-    statusEl.textContent = siswa.status === "LULUS" ? "Lulus" : "Tidak Lulus";
-    statusEl.className = siswa.status === "LULUS" ? "status-lulus" : "status-tidak-lulus";
+      const statusEl = document.getElementById('status');
+      if ((siswa.status || '').toUpperCase() === 'LULUS') {
+        statusEl.textContent = 'Lulus';
+        statusEl.className = 'status-lulus';
+      } else {
+        statusEl.textContent = 'Tidak Lulus';
+        statusEl.className = 'status-tidak-lulus';
+      }
 
-    const nilai = siswa.nilai || {};
-    const daftarNilai = document.getElementById("daftarNilai");
+      const nilai = siswa.nilai || {};
+      const tbody = document.getElementById('daftarNilai');
+      let total = 0;
+      let count = 0;
 
-    let total = 0;
-    let jumlah = 0;
+      Object.entries(nilai).forEach(([mapel, skor]) => {
+        const angka = Number(skor) || 0;
+        total += angka;
+        count += 1;
 
-    Object.entries(nilai).forEach(([mapel, skor]) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `<td>${mapel}</td><td>${skor}</td>`;
-        daftarNilai.appendChild(tr);
-        total += Number(skor) || 0;
-        jumlah += 1;
-    });
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${mapel}</td><td>${angka}</td>`;
+        tbody.appendChild(tr);
+      });
 
-    document.getElementById("rataRata").textContent = jumlah ? (total / jumlah).toFixed(2) : "-";
-})();
-</script>
+      document.getElementById('rataRata').textContent = count ? (total / count).toFixed(2) : '-';
+    })();
+  </script>
 </body>
 </html>

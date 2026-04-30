@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PENGUMUMAN KELULUSAN SMKN 1 PANGGARANGAN TAHUN 2026</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman Kelulusan SMKN 1 Panggarangan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-<div class="container">
-    <img src="logo_sekolah.png" class="logo" alt="Logo SMKN 1 Panggarangan">
-
+<body class="body-index">
+  <div class="container">
+    <img src="logo_sekolah.png" class="logo" alt="Logo Sekolah">
     <h1>PENGUMUMAN KELULUSAN<br>SMKN 1 PANGGARANGAN<br>TAHUN PELAJARAN 2025/2026</h1>
-
     <div class="line"></div>
 
     <label for="nisn">Masukkan NISN Anda</label><br>
@@ -23,10 +20,12 @@
 
     <button onclick="cekKelulusan()">CEK KELULUSAN</button>
 
-    <div id="hasil" class="hasil"></div>
-</div>
+    <label for="tanggalLahir">Masukkan Tanggal Lahir</label>
+    <input type="date" id="tanggalLahir">
 
-<script src="script.js"></script>
+    <button id="btnCek" onclick="cekKelulusan()">CEK KELULUSAN</button>
+  </div>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     "nama": "ALBI PERNANDA",
     "kompetensi_keahlian": "Otomatisasi Dan Tata Kelola Perkantoran",
     "status": "LULUS",
-    "foto": "https://i.pravatar.cc/280?img=12",
+    "foto": "https://i.imgur.com/92xqXQx.jpeg",
     "nilai": {
       "Pendidikan Agama Islam": 85,
       "Pendidikan Kewarganegaraan": 82,
@@ -14,32 +14,6 @@
       "Matematika": 80,
       "Bahasa Inggris": 78,
       "Konsentrasi Keahlian": 83
-    "tanggal_lahir": "2008-03-14",
-    "nama": "ALBI PERNANDA",
-    "status": "LULUS",
-    "foto": "https://i.pravatar.cc/240?img=12",
-    "nilai": {
-      "Matematika": 88,
-      "Bahasa Indonesia": 90,
-      "Bahasa Inggris": 86,
-      "Produktif": 92
-    }
-  },
-  {
-    "nisn": "0071421203",
-    "tanggal_lahir": "2007-06-22",
-    "tempat_lahir": "LEBAK",
-    "nama": "BUDI SANTOSO",
-    "kompetensi_keahlian": "Teknik Komputer dan Jaringan",
-    "status": "TIDAK LULUS",
-    "foto": "https://i.pravatar.cc/280?img=15",
-    "nilai": {
-      "Pendidikan Agama Islam": 70,
-      "Pendidikan Kewarganegaraan": 71,
-      "Bahasa Indonesia": 68,
-      "Matematika": 62,
-      "Bahasa Inggris": 66,
-      "Konsentrasi Keahlian": 69
     }
   }
 ]
