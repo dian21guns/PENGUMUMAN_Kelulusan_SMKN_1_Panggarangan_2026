@@ -1,37 +1,49 @@
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+async function cekKelulusan() {
+    const nisnInput = document.getElementById("nisn").value.trim();
+    const hasil = document.getElementById("hasil");
 
-<script>
-document.getElementById("convertBtn").addEventListener("click", function () {
-    const fileInput = document.getElementById("excelFile");
-    const output = document.getElementById("jsonOutput");
-
-    if (!fileInput.files.length) {
-        output.textContent = "Silakan upload file Excel terlebih dahulu.";
+    // Validasi input kosong
+    if (!nisnInput) {
+        hasil.style.display = "block";
+        hasil.style.background = "rgba(255,0,0,0.2)";
+        hasil.innerHTML = "⚠️ Silakan masukkan NISN!";
         return;
     }
 
-    const file = fileInput.files[0];
-    const reader = new FileReader();
+    try {
+        const response = await fetch("data.json");
+        const data = await response.json();
 
-    reader.onload = function (e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
-        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const siswa = data.find(s => s.nisn === nisnInput);
 
-        const json = XLSX.utils.sheet_to_json(sheet);
+        hasil.style.display = "block";
 
-        output.textContent = JSON.stringify(json, null, 4);
+        if (siswa) {
+            if (siswa.status.toUpperCase() === "LULUS") {
+                hasil.style.background = "rgba(0,255,0,0.2)";
+                hasil.innerHTML = `
+                    🎉 SELAMAT! 🎉 <br><br>
+                    Nama: <b>${siswa.nama}</b><br>
+                    NISN: <b>${siswa.nisn}</b><br><br>
+                    Anda dinyatakan <b>LULUS</b>
+                `;
+            } else {
+                hasil.style.background = "rgba(255,0,0,0.2)";
+                hasil.innerHTML = `
+                    Nama: <b>${siswa.nama}</b><br>
+                    NISN: <b>${siswa.nisn}</b><br><br>
+                    Anda dinyatakan <b>TIDAK LULUS</b>
+                `;
+            }
+        } else {
+            hasil.style.background = "rgba(255,0,0,0.2)";
+            hasil.innerHTML = "❌ Data tidak ditemukan!";
+        }
 
-        // Untuk download JSON
-        const blob = new Blob([JSON.stringify(json)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "kelulusan.json";
-        a.click();
-    };
-
-    reader.readAsArrayBuffer(file);
-});
-</script>
+    } catch (error) {
+        hasil.style.display = "block";
+        hasil.style.background = "rgba(255,0,0,0.2)";
+        hasil.innerHTML = "⚠️ Terjadi kesalahan saat mengambil data!";
+        console.error(error);
+    }
+}
