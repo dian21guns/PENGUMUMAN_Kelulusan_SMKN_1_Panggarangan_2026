@@ -16,7 +16,7 @@
       <tr><th>Nama</th><td id="nama"></td></tr>
       <tr><th>NISN</th><td id="nisn"></td></tr>
       <tr><th>Tempat/Tanggal Lahir</th><td id="ttl"></td></tr>
-      <tr><th>Konsentrasi Keahlian</th><td id="kompetensi"></td></tr>
+      <tr><th>Program Keahlian</th><td id="kompetensi"></td></tr>
       <tr><th>Status</th><td id="status"></td></tr>
     </table>
 
@@ -45,7 +45,7 @@
       document.getElementById('nama').textContent = siswa.nama || '-';
       document.getElementById('nisn').textContent = siswa.nisn || '-';
       document.getElementById('ttl').textContent = `${siswa.tempat_lahir || '-'}, ${siswa.tanggal_lahir || '-'}`;
-      document.getElementById('kompetensi').textContent = siswa.konsentrasi_keahlian || '-';
+      document.getElementById('kompetensi').textContent = siswa.program_keahlian || '-';
 
       const statusEl = document.getElementById('status');
       const lulus = (siswa.status || '').toUpperCase() === 'LULUS';
