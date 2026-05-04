@@ -2,8 +2,12 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:'Poppins',sans-serif}
 
-.body-index{min-height:100vh;background:#001b53;color:#fff;display:flex;justify-content:center;align-items:center}
-.card-index{width:92%;max-width:520px;background:rgba(255,255,255,.08);border-radius:16px;padding:28px;text-align:center}
+.body-index{min-height:100vh;background:radial-gradient(circle at 20% 20%,#7ec3ff 0%,#3b8ee8 42%,#1b5fbe 100%);color:#fff;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}
+.body-index::before,.body-index::after{content:"";position:absolute;inset:-20%;pointer-events:none;background-repeat:repeat;opacity:.45}
+.body-index::before{background-image:radial-gradient(circle,rgba(255,255,255,.95) 0 1.5px,transparent 2px);background-size:120px 120px;animation:kilau 12s linear infinite}
+.body-index::after{background-image:radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1.8px);background-size:90px 90px;animation:kilau 8s linear infinite reverse;opacity:.35}
+@keyframes kilau{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-25px,20px,0)}100%{transform:translate3d(0,0,0)}}
+.card-index{width:92%;max-width:520px;background:rgba(255,255,255,.14);border-radius:16px;padding:28px;text-align:center;position:relative;z-index:1;backdrop-filter:blur(2px)}
 .logo-index{width:90px}
 h1{font-size:38px;line-height:1.35;margin:8px 0}
 .line{width:70%;height:2px;background:rgba(255,255,255,.6);margin:14px auto 20px}
