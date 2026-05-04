@@ -2,8 +2,8 @@
 *{box-sizing:border-box}
 body{margin:0;font-family:'Poppins',sans-serif}
 
-.body-index{min-height:100vh;background:#001b53;color:#fff;display:flex;justify-content:center;align-items:center}
-.card-index{width:92%;max-width:520px;background:rgba(255,255,255,.08);border-radius:16px;padding:28px;text-align:center}
+.body-index{min-height:100vh;background:radial-gradient(circle at 20% 20%,#1c4f93 0%,#123d78 48%,#0b2854 100%);color:#fff;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}
+.card-index{width:92%;max-width:520px;background:rgba(255,255,255,.14);border-radius:16px;padding:28px;text-align:center;position:relative;z-index:1;backdrop-filter:blur(2px)}
 .logo-index{width:90px}
 h1{font-size:38px;line-height:1.35;margin:8px 0}
 .line{width:70%;height:2px;background:rgba(255,255,255,.6);margin:14px auto 20px}
@@ -24,5 +24,12 @@ button{margin-top:8px;padding:12px 24px;border:none;border-radius:10px;backgroun
 .judul-nilai{text-align:center;margin:24px 0 12px;font-size:32px}
 .status-lulus{color:#0a9e10;font-weight:700}
 .status-tidak-lulus{color:#b71c1c;font-weight:700}
-.btn-cetak{width:100%;margin-top:12px;padding:10px;border:1px solid #888;background:#d1d1d1;border-radius:2px}
-@media print{.btn-cetak{display:none}}
+.btn-cetak,.btn-kembali{width:100%;margin-top:12px;padding:10px;border:1px solid #888;background:#d1d1d1;border-radius:2px}
+@media print{.btn-cetak,.btn-kembali{display:none}}
+
+
+.countdown-popup{position:fixed;inset:0;z-index:9;background:rgba(3,15,37,.72);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;backdrop-filter:blur(6px)}
+.countdown-title{font-size:20px;font-weight:600;opacity:.95;margin-bottom:10px;background:rgba(255,255,255,.12);padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.35)}
+.countdown-timer{font-size:44px;font-weight:700;letter-spacing:2px;background:rgba(255,255,255,.16);padding:10px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.4)}
+
+.popup-heading{max-width:760px;font-size:22px;font-weight:700;line-height:1.35;margin-bottom:16px;background:rgba(255,255,255,.15);padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.35)}
