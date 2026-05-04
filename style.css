@@ -30,3 +30,8 @@ button{margin-top:8px;padding:12px 24px;border:none;border-radius:10px;backgroun
 .status-tidak-lulus{color:#b71c1c;font-weight:700}
 .btn-cetak,.btn-kembali{width:100%;margin-top:12px;padding:10px;border:1px solid #888;background:#d1d1d1;border-radius:2px}
 @media print{.btn-cetak,.btn-kembali{display:none}}
+
+
+.countdown-popup{position:fixed;top:16px;right:16px;z-index:4;background:rgba(6,25,56,.92);border:1px solid rgba(255,255,255,.3);color:#fff;padding:12px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.35);min-width:210px;text-align:center}
+.countdown-title{font-size:13px;opacity:.9;margin-bottom:6px}
+.countdown-timer{font-size:26px;font-weight:700;letter-spacing:1px}
