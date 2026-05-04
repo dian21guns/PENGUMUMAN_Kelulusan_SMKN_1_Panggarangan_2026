@@ -51,6 +51,18 @@ async function cekKelulusan() {
 }
 
 
+
+function setFormLocked(locked) {
+  const nisn = document.getElementById("nisn");
+  const tanggal = document.getElementById("tanggalLahir");
+  const tombol = document.getElementById("btnCekKelulusan");
+
+  [nisn, tanggal, tombol].forEach((el) => {
+    if (!el) return;
+    el.disabled = locked;
+  });
+}
+
 function initCountdownPopup() {
   const popup = document.getElementById("countdownPopup");
   const timer = document.getElementById("countdownTimer");
@@ -67,6 +79,7 @@ function initCountdownPopup() {
 
     if (diff <= 0) {
       popup.hidden = true;
+      setFormLocked(false);
       clearInterval(intervalId);
       return;
     }
@@ -78,6 +91,7 @@ function initCountdownPopup() {
 
     timer.textContent = `${hours}:${minutes}:${seconds}`;
     popup.hidden = false;
+    setFormLocked(true);
   }
 
   updateCountdown();
